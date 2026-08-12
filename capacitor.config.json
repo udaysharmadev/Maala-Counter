@@ -1,0 +1,6 @@
+{
+  "appId": "com.dadi.maalacounter",
+  "appName": "Maala Counter",
+  "webDir": "src",
+  "bundledWebRuntime": false
+}

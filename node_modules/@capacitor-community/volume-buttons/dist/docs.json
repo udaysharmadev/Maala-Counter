@@ -1,0 +1,178 @@
+{
+  "api": {
+    "name": "VolumeButtonsPlugin",
+    "slug": "volumebuttonsplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "isWatching",
+        "signature": "() => Promise<GetIsWatchingResult>",
+        "parameters": [],
+        "returns": "Promise<GetIsWatchingResult>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.1"
+          }
+        ],
+        "docs": "Get the watch status of the volume buttons.",
+        "complexTypes": [
+          "GetIsWatchingResult"
+        ],
+        "slug": "iswatching"
+      },
+      {
+        "name": "watchVolume",
+        "signature": "(options: VolumeButtonsOptions, callback: VolumeButtonsCallback) => Promise<CallbackID>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "VolumeButtonsOptions"
+          },
+          {
+            "name": "callback",
+            "docs": "",
+            "type": "VolumeButtonsCallback"
+          }
+        ],
+        "returns": "Promise<string>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Set up a watch for he hardware volume buttons changes",
+        "complexTypes": [
+          "VolumeButtonsOptions",
+          "VolumeButtonsCallback",
+          "CallbackID"
+        ],
+        "slug": "watchvolume"
+      },
+      {
+        "name": "clearWatch",
+        "signature": "() => Promise<void>",
+        "parameters": [],
+        "returns": "Promise<void>",
+        "tags": [
+          {
+            "name": "since",
+            "text": "1.0.0"
+          }
+        ],
+        "docs": "Clear the existing watch",
+        "complexTypes": [],
+        "slug": "clearwatch"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "GetIsWatchingResult",
+      "slug": "getiswatchingresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "value",
+          "tags": [
+            {
+              "text": "1.0.1",
+              "name": "since"
+            }
+          ],
+          "docs": "If the volume buttons are being watched.",
+          "complexTypes": [],
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "VolumeButtonsOptions",
+      "slug": "volumebuttonsoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "disableSystemVolumeHandler",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "This parameter can be used to disable the system volume handler (iOS only).\nIf this is true, when up or down volume button is tapped, the system volume will always be reset to either\nthe initial volume (the volume which was current when the volume buttons are started to be tracked/listened)\nor to 0.05 if the initial volume is less then 0.05 or to 0.95 if the initial volume\nis greater then 0.95.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        },
+        {
+          "name": "suppressVolumeIndicator",
+          "tags": [
+            {
+              "text": "1.0.2",
+              "name": "since"
+            }
+          ],
+          "docs": "This parameter can be used to suppress/hide the system volume indicator (Android only, it is never shown on iOS already).\nIf this is true, when up or down volume button is tapped, the system volume indicator will not be shown.\nThe default value is false.",
+          "complexTypes": [],
+          "type": "boolean | undefined"
+        }
+      ]
+    },
+    {
+      "name": "VolumeButtonsResult",
+      "slug": "volumebuttonsresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "direction",
+          "tags": [
+            {
+              "text": "1.0.0",
+              "name": "since"
+            }
+          ],
+          "docs": "This indicates either the volume up or volume down button was pressed.",
+          "complexTypes": [],
+          "type": "'up' | 'down'"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [
+    {
+      "name": "VolumeButtonsCallback",
+      "slug": "volumebuttonscallback",
+      "docs": "",
+      "types": [
+        {
+          "text": "(result: VolumeButtonsResult, err?: any): void",
+          "complexTypes": [
+            "VolumeButtonsResult"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CallbackID",
+      "slug": "callbackid",
+      "docs": "",
+      "types": [
+        {
+          "text": "string",
+          "complexTypes": []
+        }
+      ]
+    }
+  ],
+  "pluginConfigs": []
+}

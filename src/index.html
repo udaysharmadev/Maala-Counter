@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>माला काउंटर</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;800&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🙏 माला काउंटर</h1>
+    </header>
+
+    <main>
+      <div class="counter-container">
+        <div class="counter-display">
+          <span id="current-count" class="huge-number">0</span>
+          <span class="total-count">/ 108</span>
+        </div>
+        <div id="completion-message" class="completion-message hidden">
+          108 पूर्ण 🙏
+        </div>
+        <div class="remaining-text">
+          <span id="remaining-count">108</span> बाकी
+        </div>
+      </div>
+
+      <div class="stats-container">
+        <div class="stat-item">
+          <div class="stat-label">माला</div>
+          <div id="maala-count" class="stat-value">0</div>
+        </div>
+      </div>
+
+      <div class="status-indicator">
+        <span class="dot">●</span> Volume Up सक्रिय
+      </div>
+      
+      <div class="instruction">
+        बस Volume Up दबाना है.
+      </div>
+    </main>
+
+    <footer>
+      <div class="stats-footer">
+        <div>आज: <span id="today-total">0</span></div>
+        <div>कुल: <span id="lifetime-total">0</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

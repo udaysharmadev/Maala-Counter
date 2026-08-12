@@ -1,0 +1,29 @@
+{
+  "name": "maala-counter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udaysharmadev/Maala-Counter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/udaysharmadev/Maala-Counter/issues"
+  },
+  "homepage": "https://github.com/udaysharmadev/Maala-Counter#readme",
+  "dependencies": {
+    "@capacitor-community/volume-buttons": "^8.0.1",
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/core": "^8.5.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.0"
+  }
+}
