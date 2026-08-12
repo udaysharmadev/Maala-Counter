@@ -1,7 +1,7 @@
 :root {
-  --bg-color: #FFF8F0; /* Warm cream */
-  --text-main: #2D1A11; /* Dark brown/maroon */
-  --accent: #D4821A; /* Saffron/gold */
+  --bg-color: #FFF8F0;
+  --text-main: #2D1A11;
+  --accent: #D4821A;
   --accent-light: rgba(212, 130, 26, 0.1);
   --success: #2E7D32;
 }
