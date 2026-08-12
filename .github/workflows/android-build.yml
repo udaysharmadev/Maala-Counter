@@ -30,11 +30,15 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Install npm dependencies
-        run: npm ci
+      - name: Install Android SDK Platform 36
+        run: |
+          sdkmanager --install "platform-tools" "platforms;android-36" "build-tools;35.0.0"
 
       - name: Write local.properties
         run: echo "sdk.dir=$ANDROID_SDK_ROOT" > android/local.properties
+
+      - name: Install npm dependencies
+        run: npm ci
 
       - name: Sync Capacitor Android
         run: npx cap sync android
@@ -43,7 +47,7 @@ jobs:
         working-directory: android
         run: |
           chmod +x ./gradlew
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug --no-daemon --stacktrace
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
