@@ -1,0 +1,256 @@
+:root {
+  --bg-color: #FFF8F0; /* Warm cream */
+  --text-main: #2D1A11; /* Dark brown/maroon */
+  --accent: #D4821A; /* Saffron/gold */
+  --accent-light: rgba(212, 130, 26, 0.1);
+  --success: #2E7D32;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-container {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.counter-display {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.huge-number {
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-main);
+  transition: transform 0.1s ease;
+}
+
+.huge-number.pulse {
+  transform: scale(1.1);
+  color: var(--accent);
+}
+
+.total-count {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #7A5C4F;
+}
+
+.remaining-text {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #7A5C4F;
+}
+
+.completion-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-color);
+  width: 120%;
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--success);
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  z-index: 10;
+  animation: popIn 0.3s ease forwards;
+}
+
+.completion-message.hidden {
+  display: none;
+}
+
+@keyframes popIn {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  80% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.stat-item {
+  background-color: white;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(212, 130, 26, 0.08);
+  text-align: center;
+  border: 1px solid var(--accent-light);
+}
+
+.stat-label {
+  font-size: 1.2rem;
+  color: #7A5C4F;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 1rem;
+  background-color: rgba(46, 125, 50, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.dot {
+  font-size: 0.8rem;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.instruction {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #7A5C4F;
+  text-align: center;
+  background-color: var(--accent-light);
+  padding: 1rem;
+  border-radius: 12px;
+  width: 100%;
+}
+
+footer {
+  padding-top: 2rem;
+  border-top: 1px solid var(--accent-light);
+}
+
+.stats-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #7A5C4F;
+}
+
+.start-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.start-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.start-content {
+  text-align: center;
+  padding: 2rem;
+}
+
+.start-content h2 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.start-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.start-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.start-button {
+  background-color: var(--accent);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(212, 130, 26, 0.3);
+}
+
+.start-button:active {
+  transform: scale(0.95);
+}
